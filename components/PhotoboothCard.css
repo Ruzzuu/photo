@@ -1,0 +1,181 @@
+.photobooth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-label {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  display: inline-block;
+}
+
+.upload-label:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.sticker-label {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.sticker-label:hover {
+  box-shadow: 0 4px 12px rgba(240, 147, 251, 0.4);
+}
+
+.caption-input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  font-size: 14px;
+  font-family: inherit;
+  min-width: 200px;
+  transition: border-color 0.2s ease;
+}
+
+.caption-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.photobooth-card {
+  width: 350px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  background: white;
+  text-align: center;
+  position: relative;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.photobooth-card:hover {
+  transform: translateY(-2px);
+}
+
+.photo-area {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #9ca3af;
+}
+
+.upload-placeholder span {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.upload-placeholder p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.caption {
+  padding: 16px;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  border-top: 1px solid #e5e7eb;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caption p {
+  margin: 0;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.sticker-wrapper {
+  position: absolute;
+  display: inline-block;
+}
+
+.sticker {
+  width: 60px;
+  height: auto;
+  cursor: grab;
+  border-radius: 4px;
+  transition: transform 0.1s ease;
+}
+
+.sticker:hover {
+  transform: scale(1.05);
+}
+
+.sticker:active {
+  cursor: grabbing;
+}
+
+.remove-sticker {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sticker-wrapper:hover .remove-sticker {
+  opacity: 1;
+}
+
+.remove-sticker:hover {
+  background: #dc2626;
+}
