@@ -1,0 +1,58 @@
+{
+  "themes": {
+    "blacktheme1": {
+      "name": "blacktheme1",
+      "layout": { "width": 600, "height": 1800 },
+      "backgroundImage": "/blacktheme1.png",
+      "slots": [
+        { "id": 1, "left": 76, "top": 113, "width": 449, "height": 451 },
+        { "id": 2, "left": 76, "top": 586, "width": 449, "height": 451 },
+        { "id": 3, "left": 76, "top": 1058, "width": 449, "height": 451 }
+      ]
+    },
+    "blacktheme3": {
+      "name": "blacktheme3",
+      "layout": { "width": 600, "height": 1800 },
+      "backgroundImage": "/blacktheme3.png", 
+      "slots": [
+        { "id": 1, "left": 76, "top": 113, "width": 449, "height": 451 },
+        { "id": 2, "left": 76, "top": 586, "width": 449, "height": 451 },
+        { "id": 3, "left": 76, "top": 1058, "width": 449, "height": 451 }
+      ]
+    },
+    "adventuretimetheme": {
+      "name": "adventuretimetheme",
+      "layout": { "width": 600, "height": 1800 },
+      "backgroundImage": "/adventuretimetheme.png",
+      "slots": [
+        { "id": 1, "left": 76, "top": 308, "width": 449, "height": 451 },
+        { "id": 2, "left": 76, "top": 780, "width": 449, "height": 441 },
+        { "id": 3, "left": 76, "top": 1252, "width": 449, "height": 441 }
+      ]
+    },
+    "zootopiatheme": {
+      "name": "zootopiatheme",
+      "layout": { "width": 600, "height": 1800 },
+      "backgroundImage": "/zootopiatheme.png",
+      "slots": [
+        { "id": 1, "left": 76, "top": 113, "width": 449, "height": 451 },
+        { "id": 2, "left": 76, "top": 586, "width": 449, "height": 451 },
+        { "id": 3, "left": 76, "top": 1058, "width": 449, "height": 451 }
+      ]
+    }
+  },
+  "layouts": {
+    "strip": {
+      "name": "2×6 Photo Strip",
+      "width": 600,
+      "height": 1800,
+      "description": "Classic photo strip layout"
+    },
+    "postcard": {
+      "name": "4×6 Postcard", 
+      "width": 1200,
+      "height": 1800,
+      "description": "Postcard style layout"
+    }
+  }
+}

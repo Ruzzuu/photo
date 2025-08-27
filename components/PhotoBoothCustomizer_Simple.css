@@ -1,0 +1,313 @@
+/* PhotoBooth Simple Customizer Styles */
+.photobooth-customizer {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Back Button */
+.back-button-customizer {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-weight: 500;
+}
+
+.back-button-customizer:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Controls Panel */
+.controls-panel {
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  height: fit-content;
+  max-height: 95vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.controls-panel h2 {
+  margin: 0 0 2rem 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.control-section {
+  margin-bottom: 2rem;
+}
+
+.control-section h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+/* Layout Buttons */
+.layout-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.layout-buttons button {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.layout-buttons button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #00c2c7;
+}
+
+.layout-buttons button.active {
+  background: linear-gradient(135deg, #00c2c7 0%, #0095b3 100%);
+  border-color: #00c2c7;
+  box-shadow: 0 4px 15px rgba(0, 194, 199, 0.3);
+}
+
+/* Theme Grid */
+.theme-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.theme-option {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.theme-option:hover {
+  border-color: #00c2c7;
+  background: rgba(0, 194, 199, 0.15);
+  transform: translateY(-2px);
+}
+
+.theme-option.active {
+  border-color: #00c2c7;
+  background: rgba(0, 194, 199, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 194, 199, 0.3);
+}
+
+.theme-option img {
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.theme-option span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: white;
+}
+
+/* Export Button */
+.export-button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #00c2c7 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 194, 199, 0.3);
+}
+
+.export-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 194, 199, 0.4);
+}
+
+/* Canvas Area */
+.canvas-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  width: 100%;
+  overflow: auto;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.photo-canvas {
+  position: relative;
+  background-size: 100% 100%; /* Show theme at exact canvas dimensions */
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  margin: 2rem auto;
+  /* Ensure theme displays perfectly */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Photo Slots - Area transparan untuk upload foto */
+.photo-slot {
+  border: 2px dashed rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.photo-slot:hover {
+  border-color: #00c2c7;
+  background: rgba(0, 194, 199, 0.1);
+}
+
+.upload-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.upload-area:hover {
+  background: rgba(0, 194, 199, 0.1);
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-label {
+  cursor: pointer;
+  text-align: center;
+  color: #666;
+  font-weight: 500;
+  padding: 0.5rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 11px;
+}
+
+.upload-label:hover {
+  color: #00c2c7;
+}
+
+.upload-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.uploaded-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .photobooth-customizer {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .controls-panel {
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+    max-height: none;
+    order: 2;
+  }
+  
+  .canvas-area {
+    padding: 1rem;
+    order: 1;
+    min-height: auto;
+  }
+  
+  .photo-canvas {
+    max-width: 100%;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .layout-buttons {
+    flex-direction: column;
+  }
+  
+  .controls-panel {
+    padding: 1rem;
+  }
+  
+  .photo-canvas {
+    margin: 0.5rem auto;
+  }
+}

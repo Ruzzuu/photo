@@ -1,0 +1,236 @@
+/* Pixel Animations Container */
+.pixel-animations-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+/* Base pixel animation styles */
+.pixel-anim {
+  position: absolute;
+  animation: gentle-float 3s ease-in-out infinite;
+}
+
+.pixel-sprite {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  filter: none;
+  transition: none;
+}
+
+/* Sky position for birds */
+.sky-position {
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bird-flight 8s linear infinite;
+}
+
+/* Second bird - mirrored position and direction */
+.sky-position-right {
+  top: 20%;
+  right: 30%;
+  transform: translateX(50%);
+  animation: bird-flight-reverse 10s linear infinite;
+}
+
+/* Ground positions - centered and spread - menempel di rumput */
+.ground-center {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
+.ground-left {
+  bottom: 0;
+  left: 25%;
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
+.ground-right {
+  bottom: 0;
+  right: 25%;
+  transform: translateX(50%);
+  z-index: 6;
+}
+
+.ground-far-left {
+  bottom: 0;
+  left: 10%;
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
+.ground-far-right {
+  bottom: 0;
+  right: 10%;
+  transform: translateX(50%);
+  z-index: 6;
+}
+
+.ground-center-left {
+  bottom: 0;
+  left: 35%;
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
+.ground-center-right {
+  bottom: 0;
+  right: 35%;
+  transform: translateX(50%);
+  z-index: 6;
+}
+
+/* Sprite sizes */
+.bird-sprite {
+  width: 80px;
+  height: 80px;
+}
+
+.bird-sprite-mirrored {
+  width: 80px;
+  height: 80px;
+  transform: scaleX(-1); /* Mirror horizontal tanpa membalik burung */
+}
+
+.dog-sprite {
+  width: 120px;
+  height: 120px;
+}
+
+.dog-sprite-small {
+  width: 90px;
+  height: 90px;
+}
+
+.cat-sprite {
+  width: 100px;
+  height: 100px;
+}
+
+.cat-sprite-small {
+  width: 75px;
+  height: 75px;
+}
+
+.kucing-sprite {
+  width: 110px;
+  height: 110px;
+}
+
+.kucing-sprite-small {
+  width: 85px;
+  height: 85px;
+}
+
+/* Animations */
+@keyframes gentle-float {
+  0%, 100% { 
+    transform: translateX(-50%) translateY(0px); 
+  }
+  50% { 
+    transform: translateX(-50%) translateY(-10px); 
+  }
+}
+
+@keyframes bird-flight {
+  0% {
+    left: -10%;
+    transform: translateX(-50%) translateY(0px);
+  }
+  25% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+  50% {
+    left: 50%;
+    transform: translateX(-50%) translateY(0px);
+  }
+  75% {
+    transform: translateX(-50%) translateY(-15px);
+  }
+  100% {
+    left: 110%;
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+
+/* Reverse bird flight animation - from right to left */
+@keyframes bird-flight-reverse {
+  0% {
+    right: -10%;
+    transform: translateX(50%) translateY(0px);
+  }
+  25% {
+    transform: translateX(50%) translateY(-15px);
+  }
+  50% {
+    right: 50%;
+    transform: translateX(50%) translateY(0px);
+  }
+  75% {
+    transform: translateX(50%) translateY(-20px);
+  }
+  100% {
+    right: 110%;
+    transform: translateX(50%) translateY(0px);
+  }
+}
+
+/* Special animations for ground animals */
+.ground-left .pixel-sprite,
+.ground-right .pixel-sprite,
+.ground-far-left .pixel-sprite,
+.ground-far-right .pixel-sprite {
+  animation: ground-float 4s ease-in-out infinite;
+}
+
+@keyframes ground-float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-8px); 
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bird-sprite {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .dog-sprite {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .dog-sprite-small {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .cat-sprite {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .kucing-sprite {
+    width: 85px;
+    height: 85px;
+  }
+  
+  .kucing-sprite-small {
+    width: 65px;
+    height: 65px;
+  }
+}

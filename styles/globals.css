@@ -3,6 +3,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Pixelify Sans Font Class - Fallback */
+.pixelify {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* Global Font Override - Apply Pixelify Sans to all elements */
+* {
+  font-family: "Pixelify Sans", sans-serif !important;
+}
+
+body {
+  font-family: "Pixelify Sans", sans-serif !important;
+}
+
 :root {
   /* Modern Birthday Theme Colors */
   --primary-purple: #8B5CF6;
@@ -221,54 +237,52 @@ body {
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
  */
 @layer base {
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
-    h1 {
-      font-size: var(--text-2xl);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) :is(h1) {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
 
-    h2 {
-      font-size: var(--text-xl);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) :is(h2) {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
 
-    h3 {
-      font-size: var(--text-lg);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) :is(h3) {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
 
-    h4 {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) :is(h4) {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
 
-    p {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-normal);
-      line-height: 1.5;
-    }
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) :is(p) {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
 
-    label {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) :is(label) {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
 
-    button {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) :is(button) {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
 
-    input {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-normal);
-      line-height: 1.5;
-    }
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) :is(input) {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
   }
 }
 

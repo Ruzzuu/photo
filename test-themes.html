@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .theme-test { margin: 20px 0; }
+        .theme-test img { 
+            max-width: 200px; 
+            border: 2px solid #ccc; 
+            margin: 10px;
+            background: #f0f0f0;
+        }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Theme Files Test</h1>
+    
+    <div class="theme-test">
+        <h2>Black Theme 1</h2>
+        <img src="/Blacktheme1.png" alt="Black Theme 1" onload="showStatus(this, true)" onerror="showStatus(this, false)">
+        <div id="status-black1"></div>
+    </div>
+    
+    <div class="theme-test">
+        <h2>Black Theme 3</h2>
+        <img src="/Blacktheme3.png" alt="Black Theme 3" onload="showStatus(this, true)" onerror="showStatus(this, false)">
+        <div id="status-black3"></div>
+    </div>
+    
+    <div class="theme-test">
+        <h2>Zootopia Theme</h2>
+        <img src="/zootopiatheme.png" alt="Zootopia" onload="showStatus(this, true)" onerror="showStatus(this, false)">
+        <div id="status-zootopia"></div>
+    </div>
+    
+    <div class="theme-test">
+        <h2>Adventure Time Theme</h2>
+        <img src="/adventuretimetheme.png" alt="Adventure Time" onload="showStatus(this, true)" onerror="showStatus(this, false)">
+        <div id="status-adventure"></div>
+    </div>
+
+    <script>
+        function showStatus(img, success) {
+            const alt = img.alt.toLowerCase().replace(/\s+/g, '');
+            const statusDiv = document.getElementById('status-' + alt.replace('theme', ''));
+            if (statusDiv) {
+                if (success) {
+                    statusDiv.innerHTML = '<span class="success">✅ Loaded successfully</span>';
+                    console.log(`✅ ${img.alt} loaded successfully`);
+                } else {
+                    statusDiv.innerHTML = '<span class="error">❌ Failed to load</span>';
+                    console.error(`❌ ${img.alt} failed to load from: ${img.src}`);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

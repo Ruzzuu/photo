@@ -1,0 +1,651 @@
+/* PhotoBooth New - JSON Config Based */
+.photobooth-new {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: relative;
+  box-sizing: border-box;
+  font-family: "Pixelify Sans", sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.photobooth-new * {
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+/* Loading State */
+.photobooth-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-left-color: #00c2c7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error State */
+.photobooth-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.error-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.error-content button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #00c2c7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Back Button - New Design */
+.back-button {
+  font-family: "Pixelify Sans", sans-serif;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(90deg, #9333ea, #ec4899, #f97316);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: fit-content;
+}
+
+.back-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
+/* Canvas Area Button - Top Right */
+.canvas-area-button {
+  font-family: "Pixelify Sans", sans-serif;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(90deg, #9333ea, #ec4899, #f97316);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: fit-content;
+}
+
+.canvas-area-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Next Button - Top Right */
+.next-button-top {
+  font-family: "Pixelify Sans", sans-serif;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(90deg, #9333ea, #ec4899, #f97316);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: fit-content;
+}
+
+.next-button-top:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.next-button-top:active {
+  transform: translateY(0);
+}
+
+/* Controls Panel */
+.controls-panel {
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  padding-top: 4rem; /* Extra space untuk button back */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  height: fit-content;
+  max-height: 95vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.controls-panel h2 {
+  margin: 0 0 2rem 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.control-section {
+  margin-bottom: 2rem;
+}
+
+.control-section h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+/* Theme Grid */
+.theme-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Fit Mode Buttons */
+.fit-mode-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+.fit-mode-buttons button {
+  padding: 0.6rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.fit-mode-buttons button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #00c2c7;
+}
+
+.fit-mode-buttons button.active {
+  background: linear-gradient(135deg, #00c2c7 0%, #0095b3 100%);
+  border-color: #00c2c7;
+  box-shadow: 0 4px 15px rgba(0, 194, 199, 0.3);
+}
+
+.theme-option {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.theme-option:hover {
+  border-color: #00c2c7;
+  background: rgba(0, 194, 199, 0.15);
+  transform: translateY(-2px);
+}
+
+.theme-option.active {
+  border-color: #00c2c7;
+  background: rgba(0, 194, 199, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 194, 199, 0.3);
+}
+
+.theme-option img {
+  width: 100%;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-option span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: white;
+}
+
+/* Export Button */
+.export-button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #00c2c7 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 194, 199, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.export-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 194, 199, 0.4);
+}
+
+/* Canvas Area */
+.canvas-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  width: 100%;
+  overflow: visible; /* Changed from auto to visible */
+  padding: 1rem;
+  padding-top: 4rem; /* Extra space untuk canvas-area button */
+  padding-right: 2rem; /* Extra space ke kanan */
+  background: rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.photo-canvas {
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  margin: 1rem auto;
+  max-width: none; /* Remove any width restrictions */
+  /* Ensure theme displays perfectly */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Photo Slots - Area transparan untuk upload foto */
+.photo-slot {
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden; /* Pastikan foto tidak keluar dari slot */
+  z-index: 1; /* Di bawah theme overlay */
+}
+
+/* Theme Overlay - PNG transparan di atas foto */
+.theme-overlay {
+  pointer-events: none; /* Tidak menghalangi interaksi user */
+  z-index: 10; /* Selalu di atas foto */
+  user-select: none; /* Tidak bisa diselect */
+}
+
+.photo-slot:hover {
+  border-color: #00c2c7;
+  background: rgba(0, 194, 199, 0.1);
+}
+
+.upload-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  gap: 0.5rem;
+}
+
+.upload-area:hover {
+  background: rgba(0, 194, 199, 0.15);
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-label {
+  cursor: pointer;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 11px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  min-height: 60px;
+  width: 100%;
+}
+
+.upload-label:hover {
+  color: #00c2c7;
+  background: rgba(0, 194, 199, 0.2);
+}
+
+.upload-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Camera Button */
+.camera-btn {
+  cursor: pointer;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 11px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  background: rgba(0, 150, 30, 0.4);
+  border: 1px solid rgba(0, 200, 50, 0.3);
+  border-radius: 6px;
+  min-height: 60px;
+  width: 100%;
+}
+
+.camera-btn:hover {
+  color: #00ff00;
+  background: rgba(0, 200, 50, 0.3);
+  border-color: #00ff00;
+}
+
+.camera-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.uploaded-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Gunakan cover untuk mengisi penuh tanpa distorsi */
+  object-position: center; /* Center foto */
+  display: block;
+  border-radius: 6px;
+  /* Pastikan gambar tidak overflow dari container */
+  max-width: 100%;
+  max-height: 100%;
+  /* Fallback untuk browser lama */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Alternatif jika ingin foto tidak terpotong sama sekali */
+.uploaded-photo.contain-mode {
+  object-fit: contain;
+  background: #f5f5f5;
+}
+
+/* Mode fill penuh tanpa mempertahankan aspek ratio */
+.uploaded-photo.fill-mode {
+  object-fit: fill;
+}
+
+/* Camera Modal */
+.camera-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.camera-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  text-align: center;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.camera-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.camera-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.close-camera-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-camera-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.camera-preview {
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.camera-video {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  display: block;
+}
+
+.camera-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.capture-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #00c2c7 0%, #00ff00 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 194, 199, 0.3);
+}
+
+.capture-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 194, 199, 0.4);
+}
+
+.cancel-btn {
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Camera Modal */
+@media (max-width: 768px) {
+  .camera-content {
+    padding: 1rem;
+  }
+  
+  .camera-controls {
+    flex-direction: column;
+  }
+  
+  .capture-btn, .cancel-btn {
+    width: 100%;
+  }
+}
+@media (max-width: 1200px) {
+  .photobooth-new {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .controls-panel {
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+    max-height: none;
+    order: 2;
+  }
+  
+  .canvas-area {
+    padding: 1rem;
+    order: 1;
+    min-height: auto;
+  }
+  
+  .photo-canvas {
+    max-width: 100%;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .controls-panel {
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .canvas-area {
+    padding-right: 1rem; /* Reduce padding on mobile */
+  }
+  
+  .photo-canvas {
+    margin: 0.5rem auto;
+  }
+  
+  /* Adjust button positioning on mobile */
+  .back-button, .next-button-top {
+    top: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}

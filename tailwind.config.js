@@ -11,6 +11,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        pixelify: ['"Pixelify Sans"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
