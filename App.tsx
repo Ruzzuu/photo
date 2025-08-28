@@ -3,7 +3,7 @@ import LandingScreen from './components/LandingScreen';
 import CreditsScreen from './components/CreditsScreen';
 import CreditsPage from './components/CreditsPage';
 import Designer from './components/Designer';
-import PhotoBoothCustomizer from './components/PhotoBoothFixed';
+import PhotoBoothCustomizer from './components/PhotoBooth';
 import PixelAnimations from './components/PixelAnimations';
 
 export default function App() {
@@ -15,10 +15,6 @@ export default function App() {
 
   const handleShowCredits = () => {
     setCurrentScreen('credits');
-  };
-
-  const handleNextToCredits = () => {
-    setCurrentScreen('finalCredits');
   };
 
   const handleBackToLanding = () => {
@@ -66,8 +62,7 @@ export default function App() {
 
         {currentScreen === 'customizer' && (
           <PhotoBoothCustomizer 
-            onBackToLanding={handleBackToLanding} 
-            onNext={handleNextToCredits}
+            onBackToLanding={handleBackToLanding}
           />
         )}
 

@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ArrowLeft, Download } from 'lucide-react';
-import './PhotoBoothNew.css';
+import './PhotoBooth.css';
 
 interface PhotoBoothProps {
   onBackToLanding?: () => void;
-  onNext?: () => void;
 }
 
 interface Slot {
@@ -23,7 +22,7 @@ interface ThemeConfig {
   slots: Slot[];
 }
 
-const PhotoBoothFixed: React.FC<PhotoBoothProps> = ({ onBackToLanding, onNext }) => {
+const PhotoBoothFixed: React.FC<PhotoBoothProps> = ({ onBackToLanding }) => {
   const [config, setConfig] = useState<ThemeConfig[] | null>(null);
   const [currentTheme, setCurrentTheme] = useState<string>('blacktheme1');
   const [photos, setPhotos] = useState<Record<number, string>>({});
@@ -546,18 +545,22 @@ const PhotoBoothFixed: React.FC<PhotoBoothProps> = ({ onBackToLanding, onNext })
           </div>
         </div>
       )}
-
-      {/* Credit Link - Center Bottom */}
-      {onNext && (
-        <div className="credit-link-container">
-          <button 
-            onClick={onNext}
-            className="credit-link"
-          >
-            Credit
-          </button>
-        </div>
-      )}
+      
+      {/* Simple Credit Link */}
+      <div style={{ textAlign: 'center', marginTop: '1rem', paddingBottom: '1rem' }}>
+        <a 
+          href="#"
+          style={{
+            color: 'rgb(167, 139, 250)',
+            textDecoration: 'underline',
+            cursor: 'pointer',
+            fontFamily: '"Pixelify Sans", monospace',
+            fontSize: '1.1rem'
+          }}
+        >
+          Credit
+        </a>
+      </div>
     </div>
   );
 };

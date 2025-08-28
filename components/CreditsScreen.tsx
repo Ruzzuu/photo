@@ -6,7 +6,7 @@ interface CreditsScreenProps {
 
 export default function CreditsScreen({ onNext }: CreditsScreenProps) {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-8 sm:py-12">
       {/* Floating Birthday Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-16 left-12 text-6xl opacity-20 floating-animation">🎂</div>
@@ -19,7 +19,7 @@ export default function CreditsScreen({ onNext }: CreditsScreenProps) {
 
       {/* Next Button - Top Right */}
       <button 
-        className="fixed top-6 right-6 z-20 flex items-center justify-center w-12 h-12 p-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-white hover:bg-white/30 transition-all duration-300"
+        className="fixed top-4 right-4 sm:top-6 sm:right-6 z-20 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-white hover:bg-white/30 transition-all duration-300"
         style={{
           transform: 'translateY(0px)',
           boxShadow: '0 0 0 rgba(255,255,255,0)'
@@ -34,13 +34,13 @@ export default function CreditsScreen({ onNext }: CreditsScreenProps) {
         }}
         onClick={onNext}
       >
-        <ArrowRight size={20} />
+        <ArrowRight size={16} className="sm:w-5 sm:h-5" />
       </button>
 
       {/* Main Content Container */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         {/* Credits Section */}
-        <div className="mb-12 bg-white/20 rounded-3xl p-8 border border-white/30">
+        <div className="mb-8 sm:mb-12 bg-black/70 rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-white/25">
           <div className="flex items-center justify-center mb-8">
             <div className="relative">
               <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center shadow-2xl">
@@ -52,22 +52,22 @@ export default function CreditsScreen({ onNext }: CreditsScreenProps) {
             </div>
           </div>
           
-          <h1 className="font-pixelify text-6xl md:text-7xl font-bold bg-gradient-to-r from-orange-600 via-red-500 to-pink-500 bg-clip-text text-transparent mb-6">
+          <h1 className="font-pixelify text-4xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-orange-600 via-red-500 to-pink-500 bg-clip-text text-transparent mb-4 sm:mb-6">
             Credits
           </h1>
-          <h2 className="font-pixelify text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-lg">
+          <h2 className="font-pixelify text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8 drop-shadow-lg">
             Mad Respect
           </h2>
           
           <div className="max-w-3xl mx-auto">
-            <p className="font-pixelify text-lg md:text-xl text-white/90 leading-relaxed drop-shadow-md mb-8">
+            <p className="font-pixelify text-base sm:text-lg md:text-xl text-white/90 leading-relaxed drop-shadow-md mb-6 sm:mb-8">
               Big love and mad respect to all the folks holdin' it down with the dope assets — shoutout to{' '}
               <span className="text-cyan-300 font-bold">CraftPix</span> for the fire pixel art,{' '}
               <span className="text-pink-300 font-bold">Pinterest</span> for all that inspo, and{' '}
               <span className="text-blue-300 font-bold">Google</span> comin' through with the fonts.
             </p>
             
-            <p className="font-pixelify text-lg md:text-xl text-white/90 leading-relaxed drop-shadow-md">
+            <p className="font-pixelify text-base sm:text-lg md:text-xl text-white/90 leading-relaxed drop-shadow-md">
               And can't forget the real ones at the frontlines —{' '}
               <span className="text-purple-300 font-bold">Dario Amodei</span> at Anthropic and{' '}
               <span className="text-green-300 font-bold">Sam Altman</span> at OpenAI — y'all the MVPs fr.{' '}
@@ -77,8 +77,8 @@ export default function CreditsScreen({ onNext }: CreditsScreenProps) {
         </div>
 
         {/* Developer Credit Footer */}
-        <div className="mt-16 text-center">
-          <p className="font-pixelify text-sm text-white/70 hover:text-white transition-colors duration-300">
+        <div className="mt-8 sm:mt-16 text-center">
+          <p className="font-pixelify text-xs sm:text-sm text-white/70 hover:text-white transition-colors duration-300">
             Made with ❤️ by{' '}
             <a 
               href="https://www.instagram.com/fairuuzzfd" 
