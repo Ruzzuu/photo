@@ -1,53 +1,74 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, memo } from 'react';
 import './PixelAnimations.css';
 
-const PixelAnimations = () => {
-  // Bird animation state
+const PixelAnimations = memo(() => {
+  // Animation state with better performance
   const [birdFrame, setBirdFrame] = useState(0);
   const [dogFrame, setDogFrame] = useState(0);
   const [catFrame, setCatFrame] = useState(0);
   const [kucingFrame, setKucingFrame] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
-  const birdFrames = ["bird1.png", "bird2.png", "bird3.png", "bird4.png"];
-  const dogFrames = ["dog1.png", "dog2.png", "dog3.png", "dog4.png"];
-  const catFrames = ["cat1.png", "cat2.png"];
-  const kucingFrames = ["kucing1.png", "kucing2.png", "kucing3.png", "kucing4.png"];
+  // Memoized animation frames for better performance
+  const birdFrames = useState(["bird1.png", "bird2.png", "bird3.png", "bird4.png"])[0];
+  const dogFrames = useState(["dog1.png", "dog2.png", "dog3.png", "dog4.png"])[0];
+  const catFrames = useState(["cat1.png", "cat2.png"])[0];
+  const kucingFrames = useState(["kucing1.png", "kucing2.png", "kucing3.png", "kucing4.png"])[0];
 
-  // Bird animation (flying in sky)
+  // Pause animations when not visible for performance
+  const handleVisibilityChange = useCallback(() => {
+    setIsVisible(!document.hidden);
+  }, []);
+
+  // Visibility change listener for performance
   useEffect(() => {
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [handleVisibilityChange]);
+
+  // Bird animation (flying in sky) - pauses when not visible
+  useEffect(() => {
+    if (!isVisible) return;
+    
     const birdInterval = setInterval(() => {
       setBirdFrame((prev) => (prev + 1) % birdFrames.length);
     }, 200);
 
     return () => clearInterval(birdInterval);
-  }, []);
+  }, [birdFrames.length, isVisible]);
 
-  // Dog animation (ground level)
+  // Dog animation (ground level) - pauses when not visible
   useEffect(() => {
+    if (!isVisible) return;
+    
     const dogInterval = setInterval(() => {
       setDogFrame((prev) => (prev + 1) % dogFrames.length);
     }, 250);
 
     return () => clearInterval(dogInterval);
-  }, []);
+  }, [dogFrames.length, isVisible]);
 
-  // Cat animation (ground level)
+  // Cat animation (ground level) - pauses when not visible
   useEffect(() => {
+    if (!isVisible) return;
+    
     const catInterval = setInterval(() => {
       setCatFrame((prev) => (prev + 1) % catFrames.length);
     }, 300);
 
     return () => clearInterval(catInterval);
-  }, []);
+  }, [catFrames.length, isVisible]);
 
-  // Kucing animation (ground level)
+  // Kucing animation (ground level) - pauses when not visible
   useEffect(() => {
+    if (!isVisible) return;
+    
     const kucingInterval = setInterval(() => {
       setKucingFrame((prev) => (prev + 1) % kucingFrames.length);
     }, 220);
 
     return () => clearInterval(kucingInterval);
-  }, []);
+  }, [kucingFrames.length, isVisible]);
 
   return (
     <div className="pixel-animations-container">
@@ -130,6 +151,9 @@ const PixelAnimations = () => {
       </div>
     </div>
   );
-};
+});
+
+// Display name for debugging
+PixelAnimations.displayName = 'PixelAnimations';
 
 export default PixelAnimations;
